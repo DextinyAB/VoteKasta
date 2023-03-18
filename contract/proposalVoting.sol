@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-// Added NatSpec commment, you con read more about it [here](https://docs.soliditylang.org/en/v0.8.19/natspec-format.html#natspec)
-// edited the readProposal function to display all the properties of the `Proposal` struct for increased efficiency
-// Removed the getProposalLength function as it only returns the proposalLength. Made this variable public so it value can be assessed
-
 /// @title A Voting Proposal system
 /// @author Your name goes here
 contract ProposalVoting {
