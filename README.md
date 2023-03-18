@@ -2,6 +2,8 @@
 
 #### Live Demo
 
+https://dextinyab.github.io/VoteKasta/
+
 ### Description
 A decentralized application on the celo blockchain that allows you to vote on your favourite proposals.
 
