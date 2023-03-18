@@ -5,7 +5,8 @@ import proposalVotingAbi from "../contract/proposalVoting.abi.json"
 
 
 const ERC20_DECIMALS = 18
-const ContractAddress = "0xF9D94A85cF3315E099934ED7B844Ba067a049aE4"
+// "0xF9D94A85cF3315E099934ED7B844Ba067a049aE4"
+const ContractAddress = "0x43336fE28F8ae28d2F44289E3d566c2383a5bb51"
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
 
 let kit
@@ -43,7 +44,8 @@ const getBalance = async function () {
 
 // 2
 const getProposals = async function() {
-  const _proposalLength = await contract.methods.getLengthOfProposals().call()
+  const _proposalLength = await contract.methods.proposalLength().call()
+  console.log(_proposalLength)
   const _proposalArr = []
   for (let i = 0; i < _proposalLength; i++) {
     let _proposal = new Promise(async (resolve, reject) => {
@@ -68,10 +70,10 @@ function renderProposals() {
 
   let proposalsDiv = $("#proposalsDiv");
   proposalsDiv.empty();
+  console.log(proposals);
 
-  if (proposals) {
+  if (proposals.length >= 1) {
     for (let i = 0; i <= proposals.length; i++) {
-      if (proposals[i]["name"].length) {
         proposalsDiv.append(
           `
           <div class="col-md-4">
@@ -113,7 +115,6 @@ function renderProposals() {
 
           `
         )
-      }
     }
   }
 
