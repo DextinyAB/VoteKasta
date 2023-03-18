@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <title>VoteKasta</title>
+  </head>
+
+  <body>
+
+    <div class="container mt-2" style="max-width: 72em;">
+
+    <div>
+      <div class="alert alert-warning fixed-top" role="alert">
+        <span id="notification">⌛ Loading please wait...</span>
+      </div>
+    </div>
+
+
+   <!-- Navbar starts here -->
+  <nav class="navbar bg-white navbar-light " >
+        <div class="container">
+          <span class="navbar-brand m-0 h4 fw-bold text-black">VoteKasta </span>
+          <span class="nav-link border rounded-pill bg-light">
+            <span id="balance">0</span>
+            cUSD
+          </span>
+        </div>
+      </nav>
+ <!-- Navbar ends here -->
+
+
+
+ <!-- Hero starts here -->
+
+  <div class="container border-bottom">
+    <div class="row py-3">
+
+    
+  </div>
+</div>
+ <div class="row bg-success text-white">
+    <div class="col-md-12 p-5 text-center">
+      <h4>Vote on your favourite proposals</h4>
+      <button class="btn btn-success shadow addProposal" data-bs-toggle="modal"
+        data-bs-target="#addModal">Add Proposal</button>
+    </div>
+  
+
+</div>
+ <!--Hero ends here -->
+
+
+  <br><br>
+ <!-- Start of container showing proposals -->
+        <main id="proposalsDiv" class="row">
+          <div class="d-flex mt-3 justify-content-center">
+  <div class="spinner-border text-success spinner-border-sm" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+    <p class="mx-1">Fetching  proposals...</p>
+</div>
+        </main>
+
+
+      </div>
+<!-- End of container -->
+
+
+<!-- start of modal to add a proposal-->
+    <div
+      class="modal fade"
+      id="addModal"
+      tabindex="-1"
+      aria-labelledby="newProductModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newProductModalLabel1">New </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="col">
+                  <input
+                    type="text"
+                    id="proposalName"
+                    class="form-control mb-2"
+                    placeholder="Proposal Name"
+                  />
+                </div>
+
+                <div class="col">
+                  <input
+                    type="text"
+                    id="proposalDescription"
+                    class="form-control mb-2"
+                    placeholder="proposal Description"
+                  />
+                </div>
+
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-light border"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+              id="addProposal"
+            >
+              Add Proposal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+  crossorigin="anonymous"
+  ></script>
+  <script src="https://unpkg.com/ethereum-blockies@0.1.1/blockies.min.js"></script>
+<script type="text/javascript" src="main.js"></script></body>
+<!-- End of .container -->
+</html>
