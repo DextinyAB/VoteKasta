@@ -5,7 +5,7 @@ import proposalVotingAbi from "../contract/proposalVoting.abi.json"
 
 
 const ERC20_DECIMALS = 18
-const ContractAddress = "0x5a8dfb4e5036985fd49186c82F7ec8B882526dEb"
+const ContractAddress = "0xF9D94A85cF3315E099934ED7B844Ba067a049aE4"
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
 
 let kit
@@ -168,11 +168,12 @@ document
       await contract.methods
         .addProposal(...params)
         .send({ from: kit.defaultAccount })
+      notification(`🎉 You successfully added "${params[0]}".`)
+      getProposals()
     } catch (error) {
       notification(`⚠️ ${error}.`)
     }
-    notification(`🎉 You successfully added "${params[0]}".`)
-    getProposals()
+    notificationOff()
   })
 
 // implements the vote yes functionaly
@@ -232,7 +233,6 @@ document.querySelector("#proposalsDiv").addEventListener("click", async (e) => {
     }
 
     notificationOff()
-    console.log('hekk')
  
   }
 })

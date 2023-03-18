@@ -32,10 +32,6 @@ contract ProposalVoting {
         _;
     }
 
-    constructor() {
-        proposalLength = 0;
-    }
-
     // 1. Get the length of added provisions
     function getLengthOfProposals() public view returns(uint) {
         return proposalLength;
