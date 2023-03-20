@@ -23,9 +23,6 @@ contract ProposalVoting {
     //store all the added provisions
     mapping(uint => Proposal) internal proposals;
 
-    //store all the voters
-    mapping(address => bool) public voters;
-
     //modifier for onlyOwner
     modifier onlyOwner(uint _index){
         require(msg.sender == proposals[_index].owner,"You are not authorized");
@@ -51,7 +48,6 @@ contract ProposalVoting {
     // 3. Vote on a proposal
     function vote(uint _index, bool _vote) public {
         require(proposals[_index].open == true, "Proposal is closed");
-        require(voters[msg.sender] == false, "You have already voted");
 
         if(_vote == true) {
             proposals[_index].yesVotes++;
@@ -59,7 +55,6 @@ contract ProposalVoting {
             proposals[_index].noVotes++;
         }
 
-        voters[msg.sender] = true;
     }
         //get a camera with specific id
     function readProposal(uint _index) public view returns(
