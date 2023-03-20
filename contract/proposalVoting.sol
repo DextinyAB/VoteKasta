@@ -6,7 +6,7 @@ pragma solidity ^0.8.3;
 contract ProposalVoting {
 
     //stores the number of added provisions
-    uint internal proposalLength;
+    uint public proposalLength;
 
     //cUSD token address
     address internal cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
@@ -25,7 +25,7 @@ contract ProposalVoting {
     mapping(uint => Proposal) internal proposals;
 
     //store all the voters
-    mapping(address => bool) public voters;
+    mapping(uint256 => mapping(address => bool)) public voters;
 
     //modifier for onlyOwner
     modifier onlyOwner(uint _index){
@@ -51,7 +51,7 @@ contract ProposalVoting {
     /// @param _vote Your vote on the proposal
     function vote(uint _index, bool _vote) public {
         require(proposals[_index].open == true, "Proposal is closed");
-        require(voters[msg.sender] == false, "You have already voted");
+        require(voters[_index][msg.sender] == false, "You have already voted");
 
         if(_vote == true) {
             proposals[_index].yesVotes++;
@@ -59,9 +59,9 @@ contract ProposalVoting {
             proposals[_index].noVotes++;
         }
 
-        voters[msg.sender] = true;
+        voters[_index][msg.sender] = true;
     }
-    
+
     /// @notice Get the details of a proposal stored in the proposals mapping
     /// @param _index The index of the proposal on the proposals mapping
     function readProposal(uint _index) public view returns(Proposal memory){
