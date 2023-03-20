@@ -1,12 +1,10 @@
 import Web3 from "web3"
 import { newKitFromWeb3 } from "@celo/contractkit"
-import BigNumber from "bignumber.js"
 import proposalVotingAbi from "../contract/proposalVoting.abi.json"
 
 
 const ERC20_DECIMALS = 18
-const ContractAddress = "0xF9D94A85cF3315E099934ED7B844Ba067a049aE4"
-const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
+const ContractAddress = "0x43d3BfF4189C8B0FeB97EDc2F073bBc095f0AF19"
 
 let kit
 let contract

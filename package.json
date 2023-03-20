@@ -1,10 +1,6 @@
 {
-  "homepage": "https://devEMEL.github.io/cameo",
-  "name": "cameo-app",
+  "name": "votekasta",
   "version": "1.0.0",
-  "repository": {
-    "url": "git+https://github.com/devEMEL/cameo.git"
-  },
   "main": "index.js",
   "dependencies": {
     "@celo/contractkit": "^1.0.2",
