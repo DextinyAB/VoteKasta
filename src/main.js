@@ -70,7 +70,7 @@ function renderProposals() {
   proposalsDiv.empty();
 
   if (proposals) {
-    for (let i = 0; i <= proposals.length; i++) {
+    for (let i = 0; i < proposals.length; i++) {
       if (proposals[i]["name"].length) {
         proposalsDiv.append(
           `
