@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-
+/// @title A Voting Proposal system
+/// @author Your name goes here
 contract ProposalVoting {
 
     //stores the number of added provisions
@@ -29,12 +30,9 @@ contract ProposalVoting {
         _;
     }
 
-    // 1. Get the length of added provisions
-    function getLengthOfProposals() public view returns(uint) {
-        return proposalLength;
-    }
-
-    // 2. Add a new proposal
+    /// @notice Add a new proposal
+    /// @param _name The name of the proposal
+    /// @param _description The description of the proposal
     function addProposal(string calldata _name, string calldata _description) public {
         // require(bytes(_name).length > 0, "name cannot be empty");
         require(bytes(_name).length > 0, "Name cannot be empty");
@@ -45,7 +43,9 @@ contract ProposalVoting {
         proposalLength++;
     }
 
-    // 3. Vote on a proposal
+    /// @notice Vote on created proposals
+    /// @param _index The index of the proposal on the proposals mapping
+    /// @param _vote Your vote on the proposal
     function vote(uint _index, bool _vote) public {
         require(proposals[_index].open == true, "Proposal is closed");
 
@@ -56,34 +56,22 @@ contract ProposalVoting {
         }
 
     }
-        //get a camera with specific id
-    function readProposal(uint _index) public view returns(
-        address payable,
-        string memory,
-        string memory,
-        uint,
-        uint,
-        bool
-    ){
-        return 
-        (
-            proposals[_index].owner,
-            proposals[_index].name,
-            proposals[_index].description,
-            proposals[_index].yesVotes,
-            proposals[_index].noVotes,
-            proposals[_index].open
-
-        );
+    
+    /// @notice Get the details of a proposal stored in the proposals mapping
+    /// @param _index The index of the proposal on the proposals mapping
+    function readProposal(uint _index) public view returns(Proposal memory){
+        return proposals[_index];
     }
 
-    // // 4. Close proposal
+    /// @notice Close a particular proposal
+    /// @param _index The index of the proposal to be closed
     function closeProposal(uint _index) public onlyOwner(_index){ 
         require(proposals[_index].open == true, "Proposal is closed already");
         proposals[_index].open = false;
     } 
 
-    // 5. Delete proposal
+    /// @notice Delete a particular proposal
+    /// @param _index The index of the proposal to be deleted
     function deleteProposal(uint _index) public onlyOwner(_index) {
         delete proposals[_index];
     }
